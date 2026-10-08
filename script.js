@@ -53,18 +53,7 @@
     lockedHeight = viewportHeight();
     lockedScrollY = window.scrollY || 0;
 
-    const unitRect = unit.getBoundingClientRect();
-    const machineRect = machine.getBoundingClientRect();
-
-    // Keep the paper near its current visible position, but never too low.
-    const overlayTop = Math.max(112, Math.min(machineRect.top, lockedHeight * 0.24));
-    const overlayLeft = Math.max(15, unitRect.left + 12);
-    const overlayWidth = Math.max(260, unitRect.width - 24);
-
     root.style.setProperty('--locked-height', `${lockedHeight}px`);
-    root.style.setProperty('--overlay-top', `${overlayTop}px`);
-    root.style.setProperty('--overlay-left', `${overlayLeft}px`);
-    root.style.setProperty('--overlay-width', `${overlayWidth}px`);
 
     body.classList.add('keyboard-lock');
 
@@ -87,10 +76,6 @@
     const attempt = (tries = 0) => {
       if (canUnlock() || tries >= 8) {
         body.classList.remove('keyboard-lock');
-        root.style.removeProperty('--overlay-top');
-        root.style.removeProperty('--overlay-left');
-        root.style.removeProperty('--overlay-width');
-
         // Do not immediately replace --locked-height with the shrunken keyboard viewport.
         setTimeout(() => {
           const h = viewportHeight();

@@ -296,9 +296,10 @@ body{
   }
 
   /*
-    Core experiment:
+    Core experiment v3:
     - receiver keeps its pre-keyboard height
-    - typewriter becomes a fixed internal overlay while focused
+    - typewriter stays in its normal document position
+    - the OS keyboard may cover lower content
     - no station/tuner reflow occurs
   */
   body.keyboard-lock{
@@ -316,25 +317,6 @@ body{
     bottom:auto;
     height:calc(var(--locked-height) - 14px);
     max-height:none;
-  }
-
-  body.keyboard-lock .index-station{
-    overflow:visible;
-  }
-
-  body.keyboard-lock .typewriter-search{
-    position:fixed;
-    z-index:5000;
-    left:var(--overlay-left,19px);
-    top:var(--overlay-top,145px);
-    width:var(--overlay-width,calc(100vw - 38px));
-    max-width:none;
-    margin:0;
-  }
-
-  body.keyboard-lock .typewriter-body{
-    /* The physical typewriter can be covered by the OS keyboard.
-       We keep it in the overlay so the page never reflows. */
   }
 }
 
