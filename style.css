@@ -325,3 +325,118 @@ body{
   .fake-keys span{width:23px;height:25px}
   .debug{display:none}
 }
+
+
+/* ===== BETWEEN STATIONS TEA PROTOTYPE ===== */
+.tea-wait,.tea-station-preview{position:absolute;inset:54px 0 0;overflow:auto;overscroll-behavior:contain;color:var(--ink);padding:24px 16px 32px}
+.tea-wait[hidden],.tea-station-preview[hidden]{display:none}
+.tea-wait{padding:clamp(28px,4.5vw,64px);isolation:isolate}
+.tea-card{width:100%;min-height:100%;display:grid;grid-template-columns:minmax(0,.92fr) minmax(320px,1.08fr);gap:clamp(34px,6vw,96px);align-items:center;text-align:left}
+.tea-copy{--tea-heading-size:clamp(42px,4.6vw,62px);align-self:center;min-width:0;padding-left:clamp(34px,5vw,78px)}
+.tea-copy[data-heading="between"]{padding-left:clamp(34px,5vw,78px)}
+.tea-copy[data-heading="searching"]{padding-left:clamp(34px,5vw,78px)}
+.tea-copy[data-heading="no-signal"]{padding-left:clamp(34px,5vw,78px)}
+.tea-title-line{display:block}
+.tea-title-line + .tea-title-line{margin-left:.82em}
+.tea-objects{display:grid;place-items:center;min-width:0;min-height:330px;padding-bottom:86px}
+
+.tea-table{position:absolute;left:-13px;top:112px;width:286px;height:108px;pointer-events:none;z-index:-1}
+.tea-table::before{content:"";position:absolute;left:9px;right:9px;top:0;height:31px;border-radius:50%;background:linear-gradient(180deg,#bca88f,#9e8972);border-bottom:4px solid #806d5d;box-shadow:inset 0 1px #d8cab8,0 6px 10px rgba(69,49,31,.09)}
+.tea-table i{position:absolute;left:139px;top:28px;width:7px;height:76px;border-radius:4px;background:#807263}
+.tea-table b{position:absolute;left:64px;top:46px;width:158px;height:62px;background:none}
+.tea-table b::before,.tea-table b::after{content:"";position:absolute;top:0;width:80px;height:62px;border-top:6px solid #807263}
+.tea-table b::before{left:0;border-left:6px solid #807263;border-radius:100% 0 0 0}
+.tea-table b::after{right:0;border-right:6px solid #807263;border-radius:0 100% 0 0}
+.tea-cup.is-clinking{z-index:7;transition:none;cursor:default}
+.tea-guest{position:absolute;left:0;bottom:17px;width:78px;height:65px;z-index:6;pointer-events:none;transform-origin:center bottom}
+.tea-guest .tea-bowl{left:16px}
+.tea-guest .tea-cup-handle{left:0;right:auto}
+.tea-cup.is-clinking .tea-liquid,.tea-guest .tea-liquid{transition:height .85s ease-in-out}
+
+.searching-indicator{display:flex;gap:7px;align-items:flex-end;height:48px;margin-top:26px;margin-left:calc(var(--tea-heading-size) * 1.55)}
+.searching-indicator i{display:block;width:7px;background:#687a7d;opacity:.32;transform-origin:bottom;animation:tea-scan 1.45s ease-in-out infinite alternate}
+.searching-indicator i:nth-child(1){height:8px;animation-delay:-.2s}
+.searching-indicator i:nth-child(2){height:15px;animation-delay:-.78s}
+.searching-indicator i:nth-child(3){height:28px;animation-delay:-.44s}
+.searching-indicator i:nth-child(4){height:42px;animation-delay:-1.08s}
+.searching-indicator i:nth-child(5){height:27px;animation-delay:-.62s}
+.searching-indicator i:nth-child(6){height:14px;animation-delay:-.92s}
+.searching-indicator i:nth-child(7){height:7px;animation-delay:-.34s}
+@keyframes tea-scan{from{transform:scaleY(.34);opacity:.28}to{transform:scaleY(1);opacity:.72}}
+.tea-card h1{font:800 clamp(42px,4.6vw,62px)/.95 "Big Shoulders Display",sans-serif;letter-spacing:.035em;margin:0 0 16px;max-width:15ch;min-height:1.9em}
+.tea-copy:not([data-heading="between"]) h1{min-height:0}
+.tea-line{white-space:pre-line;font:700 clamp(12px,1vw,14px)/1.55 "Space Mono",monospace;letter-spacing:.085em;color:#6b5140;min-height:30px}
+.tea-level{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.tea-scene{position:relative;width:260px;height:142px;margin:0;transform:scale(1.38)}
+.tea-scene button{position:absolute;border:0;background:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.tea-scene button:focus-visible{outline:2px solid #8c7046;outline-offset:5px;border-radius:8px}
+.tea-scene button span,.tea-steam,.tea-stream,.tea-saucer,.tea-stain{pointer-events:none}
+.tea-pot{width:142px;height:119px;left:2px;bottom:15px;transform-origin:118px 44px;filter:drop-shadow(0 4px 2px #343b2920)}
+.tea-pot-body{position:absolute;left:29px;bottom:5px;width:88px;height:77px;border-radius:47% 49% 44% 44%;border:1px solid #536052;background:radial-gradient(ellipse at 64% 19%,#d8dfcf70,transparent 35%),linear-gradient(90deg,#4d5d50,#82917b 45%,#74836d 68%,#485a4c);box-shadow:inset 0 -6px 7px #34443150,inset 2px 0 2px #dbe1ca60}
+.tea-pot-body::before{content:"";position:absolute;inset:3px 12px 2px;border-left:2px solid #cbd6bd40;border-right:2px solid #374f4040;border-radius:48%;box-shadow:6px 0 0 -4px #d9e2c559,-6px 0 0 -4px #344c3a59}
+.tea-pot-body::after{content:"";position:absolute;inset:2px 29px 1px;border-left:2px solid #cad6bf50;border-right:2px solid #374f4040;border-radius:48%}
+.tea-pot-handle{position:absolute;left:3px;bottom:19px;width:38px;height:63px;border:7px solid #687b64;border-radius:52% 42% 48% 48%;transform:rotate(-12deg);box-shadow:inset 1px 1px 2px #394c3d,0 -1px 0 1px #c0c9b5}
+.tea-spout{position:absolute;left:100px;top:33px;width:56px;height:44px;transform-origin:left center}
+.tea-spout svg{display:block;width:100%;height:100%;overflow:visible;fill:#61765e;pointer-events:none}
+.tea-spout svg path{stroke:#a7b49a;stroke-width:.65;stroke-linejoin:round}
+.tea-spout-mouth{fill:#344738;stroke:#a7b49a;stroke-width:.65}
+/* Small recessed mouth follows the lid reveal without flattening the round body. */
+.tea-pot-opening{position:absolute;left:52px;top:39px;width:42px;height:13px;border:1.2px solid #536a54;border-bottom-color:#96a58a;border-radius:50%;background:#344336;box-shadow:inset 0 2px 3px #182a2099;opacity:var(--lid-opening,0);transition:opacity .25s ease-out;z-index:3;pointer-events:none}
+.tea-spout-outlet{left:53px;top:16.8px;right:auto;bottom:auto}
+.tea-lid{position:absolute;left:43px;top:28px;width:60px;height:14px;border-radius:80% 80% 22% 22%;background:linear-gradient(145deg,#a0ae94,#657a62 63%,#465b49);border-bottom:3px solid #b4b797;box-shadow:0 2px 1px #344331}
+.tea-lid::before{content:"";position:absolute;left:23px;top:-15px;width:14px;height:18px;border-radius:45% 45% 38% 38%;background:linear-gradient(90deg,#4c6150,#95a28b,#566c55);border-top:2px solid #b9c3aa}
+.tea-cup{left:171px;bottom:17px;width:78px;height:65px;transform-origin:center bottom;z-index:2;transition:transform .28s ease;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.tea-cup.is-dragging{cursor:grabbing;transition:none}
+.tea-cup.is-emptying{animation:tea-empty 1s ease-in-out}
+.tea-cup.is-emptying .tea-liquid{transition-duration:.6875s}
+.tea-scene .tea-lid{pointer-events:auto;touch-action:none;cursor:grab;user-select:none;z-index:4;transition:transform .25s ease-out}
+.tea-scene .tea-lid.is-lid-dragging{cursor:grabbing;transition:none}
+.tea-lid::after{content:"";position:absolute;inset:-18px -3px -8px;background:transparent}
+.tea-bowl{position:absolute;left:0;bottom:0;width:62px;height:49px;overflow:hidden;border:3px solid #ac9a7e;border-top:4px solid #c7b99e;border-radius:5px 5px 24px 24px;background:#ded2b9;box-shadow:inset 0 4px 5px #4e382018}
+.tea-liquid{position:absolute;inset:auto 0 0;height:0;background:#794329;box-shadow:inset 0 3px #ac784b;transition:height .55s ease}
+.tea-scene[data-level="1"] .tea-liquid{height:25%}
+.tea-scene[data-level="2"] .tea-liquid{height:52%}
+.tea-scene[data-level="3"] .tea-liquid{height:80%}
+.tea-scene[data-level="4"] .tea-liquid{height:100%}
+.tea-bowl{transition:border-top-width .55s ease}
+.tea-scene[data-level="4"] .tea-bowl{border-top-width:1.5px}
+.tea-scene[data-level="4"] .tea-liquid{box-shadow:inset 0 1px #ac784b}
+.tea-cup.is-sipping{z-index:7;transition:none}
+.tea-cup.is-sipping .tea-liquid{transition:height .75s ease-in-out}
+.tea-line-part{display:block}
+.tea-line-part + .tea-line-part{margin-left:4.5em}
+.tea-cup-handle{position:absolute;right:3px;bottom:12px;width:30px;height:30px;border:5px solid #b8a688;border-radius:50%}
+.tea-saucer{position:absolute;left:163px;bottom:10px;width:84px;height:11px;border-radius:50%;background:#c5b597;border-bottom:2px solid #a49377}
+.tea-stream{position:absolute;inset:0;width:260px;height:142px;overflow:visible;opacity:0;pointer-events:none;z-index:3}
+.tea-stream path{fill:none;stroke:#794329;stroke-width:2.6;stroke-linecap:round}
+.tea-spout-outlet,.tea-outlet{position:absolute;width:0;height:0;pointer-events:none}
+.tea-outlet{top:19px}.tea-outlet-left{left:2px}.tea-outlet-right{left:59px}
+.tea-fall-layer{position:absolute;inset:54px 0 0;overflow:hidden;pointer-events:none;z-index:4;contain:strict}
+.tea-fall-layer[hidden]{display:none}
+.tea-falling-stream{position:absolute;height:32px;border-radius:2px;background:linear-gradient(#7d3822,#6a291a);opacity:.72;pointer-events:none;transform-origin:top}
+.tea-falling-drop{position:absolute;width:5px;height:9px;border-radius:50%;clip-path:polygon(50% 0,64% 21%,86% 47%,100% 70%,92% 88%,73% 100%,27% 100%,8% 88%,0 70%,14% 47%,36% 21%);background:#794329;opacity:.78;pointer-events:none}
+.tea-steam{position:absolute;left:190px;top:34px;display:flex;gap:7px;opacity:0}
+.tea-steam i{display:block;width:5px;height:29px;border-left:1px solid #958575;border-radius:50%}
+.tea-stain{position:absolute;left:207px;bottom:8px;width:34px;height:8px;border:2px solid #885331;border-radius:50%;opacity:0}
+.tea-scene.is-pouring .tea-pot{animation:tea-pour .95s ease-in-out}
+.tea-scene.is-steaming .tea-steam{animation:tea-steam 3s ease-out}
+.tea-scene.is-spilling .tea-stain{animation:tea-spill 2.8s ease-out}
+.tea-cup.is-rocking{animation:tea-rock .5s ease-in-out}
+@keyframes tea-pour{0%,100%{transform:translate(0,0) rotate(0)}35%,65%{transform:translate(28px,-8px) rotate(14deg)}}
+@keyframes tea-steam{0%{opacity:0;transform:translateY(6px)}20%{opacity:.4}100%{opacity:0;transform:translateY(-12px)}}
+@keyframes tea-spill{0%{opacity:0}20%{opacity:.22}100%{opacity:0}}
+@keyframes tea-empty{0%,100%{transform:translate(0,0) rotate(0)}35%,65%{transform:translate(var(--tea-dump-x,15px),-9px) rotate(var(--tea-dump-angle,65deg))}}
+@keyframes tea-rock{0%,100%{transform:rotate(0)}35%{transform:rotate(-3deg)}70%{transform:rotate(2deg)}}
+.tea-station-preview h1{font:800 36px "Big Shoulders Display",sans-serif;margin:20px 0}
+.tea-station-preview p{font:12px/1.8 "Space Mono",monospace;margin:16px 0;color:#817364}
+.knob[data-tea-tune]{touch-action:none;cursor:ew-resize;user-select:none}
+.knob[data-tea-tune]:focus-visible{outline:1px solid #c8b892;outline-offset:4px}
+.scale-line.tea-tuning-line{position:relative}
+.tea-tuning-line::after{content:"";position:absolute;left:var(--tea-position,28.57%);top:-9px;width:2px;height:15px;background:#c34237;pointer-events:none}
+@media(min-width:701px) and (max-width:1000px){.tea-scene{transform:scale(1.08)}.tea-wait{padding:30px}.tea-card{gap:28px;grid-template-columns:minmax(0,.95fr) minmax(280px,1.05fr)}.tea-card h1{font-size:44px}.tea-copy{--tea-heading-size:44px}}
+@media(max-width:700px){.tea-wait{padding:24px 22px 26px}.tea-station-preview{padding:18px 12px 28px}.tea-card{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:14px;align-items:start}.tea-copy{--tea-heading-size:34px;align-self:start;padding-left:18px}
+  .tea-copy[data-heading="between"]{padding-left:18px}
+  .tea-copy[data-heading="searching"]{padding-left:18px}
+  .tea-copy[data-heading="no-signal"]{padding-left:18px}
+  .tea-title-line + .tea-title-line{margin-left:.65em}.tea-card h1{font-size:34px;max-width:none;margin-bottom:10px}.tea-line{min-height:0;font-size:10px}.searching-indicator{margin-top:12px;height:28px;gap:5px}.searching-indicator i{width:6px}.tea-objects{min-height:245px;align-self:center;padding-bottom:66px}.tea-scene{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.tea-scene *,.searching-indicator i{animation:none!important;transition:none!important}}

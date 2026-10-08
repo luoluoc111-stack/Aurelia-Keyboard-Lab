@@ -6,7 +6,7 @@
   <title>Aurelia Keyboard Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=lab3">
+  <link rel="stylesheet" href="style.css?v=tea-refine3">
 </head>
 <body>
   <main class="radio-unit" id="radio-unit">
@@ -52,6 +52,40 @@
           </div>
         </div>
       </section>
+      <!-- BETWEEN STATIONS TEA PROTOTYPE -->
+      <section class="tea-wait" id="no-signal" hidden aria-labelledby="tea-title">
+        <div class="tea-card">
+          <div class="tea-copy">
+          <h1 id="tea-title">BETWEEN STATIONS</h1>
+          <p id="tea-line" class="tea-line">TAKE YOUR TIME.</p>
+          <div class="searching-indicator" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="tea-objects">
+          <div class="tea-scene" id="tea-scene" data-level="0">
+            <div class="tea-table" aria-hidden="true"><i></i><b></b></div>
+            <span class="tea-stain" aria-hidden="true"></span>
+            <button class="tea-pot" id="tea-pot" type="button" aria-label="Pour tea into the cup">
+              <span class="tea-pot-handle"></span><span class="tea-spout"><svg viewBox="0 0 56 44" aria-hidden="true"><path d="M 0 22 C 10 10 25 3 40 4 C 47 5 51 9 55 12 C 57 13 58 15 56 17 C 54 19 50 19 48 17 C 38 18 30 22 22 28 L 6 40 Q 2 43 0 41 Z"/><ellipse class="tea-spout-mouth" cx="53" cy="15.5" rx="4" ry="1.7" transform="rotate(-18 53 15.5)"/></svg><i class="tea-spout-outlet"></i></span>
+              <span class="tea-pot-body"></span><span class="tea-pot-opening" aria-hidden="true"></span><span class="tea-lid"></span>
+            </button>
+            <svg class="tea-stream" aria-hidden="true" viewBox="0 0 260 142"><path></path></svg>
+            <button class="tea-cup" id="tea-cup" type="button" aria-label="Tea cup, level 0 of 3. Drag to empty; tap to gently rock.">
+              <span class="tea-cup-handle"></span><span class="tea-bowl"><span class="tea-liquid"></span></span><i class="tea-outlet tea-outlet-left"></i><i class="tea-outlet tea-outlet-right"></i>
+            </button>
+            <span class="tea-steam" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="tea-saucer" aria-hidden="true"></span>
+          </div>
+          </div>
+          <p class="tea-level" id="tea-level" role="status">TEA / 0 OF 3</p>
+        </div>
+      </section>
+      <div class="tea-fall-layer" id="tea-fall-layer" aria-hidden="true" hidden></div>
+      <section class="tea-station-preview" id="tea-station-preview" hidden>
+        <span class="station-tag" id="tea-preview-tag"></span>
+        <h1 id="tea-preview-title"></h1>
+        <p>CHANNEL PLACEHOLDER / KEYBOARD LAB</p>
+        <p>Turn TUNE between stations for a cup of tea.<br>Return to 90 INDEX for the original keyboard test.</p>
+      </section>
     </section>
 
     <section class="tuner-panel">
@@ -81,6 +115,6 @@
     <span id="d-lock">lockedHeight: —</span>
   </aside>
 
-  <script src="script.js?v=lab3"></script>
+  <script src="script.js?v=tea-refine3"></script>
 </body>
 </html>
