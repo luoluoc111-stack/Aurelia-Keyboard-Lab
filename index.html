@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=overlays-content">
+  <title>Aurelia Keyboard Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=lab1">
+</head>
+<body>
+  <main class="radio-unit" id="radio-unit">
+    <header class="radio-topline">
+      <span class="brand">AURELIA <i>STEREO</i></span>
+      <span class="lab-name">KEYBOARD LAB · INDEX 90</span>
+      <span class="status" id="status">READY</span>
+    </header>
+
+    <section class="screen">
+      <div class="spectrum-strip"><span>SPECTRUM</span></div>
+
+      <section class="index-station" id="station-index">
+        <span class="station-tag">90 / INDEX</span>
+        <span class="station-line">ARCHIVE SEARCH</span>
+        <span class="archive-kicker">MOBILE KEYBOARD TEST</span>
+
+        <div class="typewriter-search" id="typewriter-machine">
+          <div class="paper-assembly">
+            <div class="paper-roller"><i></i></div>
+            <div class="typewriter-paper" id="index-paper">
+              <p class="paper-heading">ARCHIVE INDEX</p>
+              <p class="paper-instruction">TYPE A WORD OR PHRASE</p>
+              <div class="query-line">
+                <span>&gt;&nbsp;</span>
+                <textarea id="index-query" rows="1" autocomplete="off" spellcheck="false" placeholder="TYPE HERE"></textarea>
+              </div>
+              <div class="index-results" id="index-results">
+                <p>输入后，这块纸应该留在屏幕可见区域。</p>
+                <p>系统键盘可以盖住下面的收音机，但不应该把它往上推。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="typewriter-body">
+            <div class="typewriter-slot"></div>
+            <div class="fake-keys">
+              <span>Q</span><span>W</span><span>E</span><span>R</span><span>T</span><span>Y</span><span>U</span><span>I</span><span>O</span><span>P</span>
+              <span>A</span><span>S</span><span>D</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span>
+              <span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span><span>N</span><span>M</span>
+            </div>
+            <div class="typewriter-badge">ARCHIVE OFFICE · MODEL 90</div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="tuner-panel">
+      <div class="scale-window">
+        <div class="scale-labels">
+          <span>PLAY<br><b>86</b></span><span>STORY<br><b>88</b></span><span class="active">INDEX<br><b>90</b></span>
+          <span>CREDITS<br><b>92</b></span><span>NOTES<br><b>94</b></span><span>VISUALS<br><b>96</b></span>
+          <span>ARCHIVE<br><b>98</b></span><span>END<br><b>100</b></span>
+        </div>
+        <div class="scale-line"></div>
+      </div>
+
+      <div class="control-row">
+        <div class="knob"><i></i><span>TUNE</span></div>
+        <div class="readout"><small>INDEX</small><strong>90</strong><em>FM</em></div>
+        <div class="knob"><i></i><span>VOL</span></div>
+      </div>
+      <div class="footer"><span>PRECISION TUNING</span><span>NO. 0472</span></div>
+    </section>
+  </main>
+
+  <aside class="debug" id="debug" aria-live="polite">
+    <b>KEYBOARD DEBUG</b>
+    <span id="d-inner">innerHeight: —</span>
+    <span id="d-vv">visualViewport: —</span>
+    <span id="d-offset">offsetTop: —</span>
+    <span id="d-lock">lockedHeight: —</span>
+  </aside>
+
+  <script src="script.js?v=lab1"></script>
+</body>
+</html>

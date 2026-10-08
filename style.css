@@ -1,0 +1,345 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --wood:#573216;
+  --panel:#262624;
+  --paper:#e7dfcd;
+  --ink:#2f2a24;
+  --red:#a43c32;
+  --locked-height:100dvh;
+}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  font-family:"Space Grotesk",sans-serif;
+  background:
+    repeating-linear-gradient(96deg,rgba(30,12,2,.18) 0 1px,transparent 1px 7px),
+    linear-gradient(135deg,#89592f,#5a3216 55%,#40220e);
+  color:#ddd;
+}
+
+.radio-unit{
+  position:fixed;
+  inset:14px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:2px solid #1d130d;
+  border-radius:9px;
+  background:#201f1d;
+  box-shadow:inset 0 0 0 4px #5e3a20,0 12px 40px rgba(0,0,0,.45);
+}
+
+.radio-topline{
+  flex:0 0 74px;
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  padding:0 26px;
+  border-bottom:5px solid #56351f;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 8px),
+    #30312f;
+  font-family:"Space Mono",monospace;
+}
+.brand{font-family:"Big Shoulders Display",sans-serif;font-size:1.7rem;letter-spacing:.14em;color:#eee}
+.brand i{font:400 .58rem "Space Mono",monospace;letter-spacing:.28em;color:#a8a29a}
+.lab-name{font-size:.68rem;letter-spacing:.14em;color:#aaa}
+.status{margin-left:auto;font-size:.68rem;color:#c69361}
+
+.screen{
+  position:relative;
+  flex:1 1 auto;
+  min-height:0;
+  margin:12px 12px 0;
+  overflow:hidden;
+  border:6px solid #101110;
+  background:#eee8da;
+}
+.spectrum-strip{
+  height:54px;
+  display:flex;
+  align-items:center;
+  padding:0 20px;
+  background:#161b1b;
+  color:#81898a;
+  font:700 .64rem "Space Mono",monospace;
+  letter-spacing:.12em;
+}
+.index-station{
+  position:absolute;
+  inset:54px 0 0;
+  overflow:auto;
+  padding:28px 6vw 34px;
+  color:var(--ink);
+  overscroll-behavior:contain;
+}
+.station-tag{
+  color:var(--red);
+  font:700 .82rem "Space Mono",monospace;
+  letter-spacing:.17em;
+}
+.station-line{
+  float:right;
+  padding:7px 10px;
+  background:#f5efe4;
+  font:.72rem "Space Mono",monospace;
+  letter-spacing:.14em;
+  color:#716a60;
+}
+.archive-kicker{
+  display:block;
+  margin:10px 0 12px;
+  color:#8c8173;
+  font:.62rem "Space Mono",monospace;
+  letter-spacing:.12em;
+}
+
+.typewriter-search{
+  position:relative;
+  width:min(760px,100%);
+  margin:0 auto;
+}
+.paper-assembly{position:relative}
+.paper-roller{
+  height:24px;
+  margin:0 20px -5px;
+  border-radius:13px;
+  background:linear-gradient(#5e5b55,#242522);
+  box-shadow:inset 0 1px #8f8c83,0 2px 3px rgba(0,0,0,.3);
+}
+.paper-roller i{
+  display:block;
+  width:92%;
+  height:4px;
+  margin:auto;
+  transform:translateY(10px);
+  background:#111;
+}
+.typewriter-paper{
+  min-height:210px;
+  padding:24px 28px;
+  overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(70,58,43,.025) 3px 4px),
+    var(--paper);
+  border:1px solid #aaa18e;
+  color:#3a342c;
+  box-shadow:0 -2px #c7bcaa,inset 0 0 22px rgba(89,71,44,.08);
+  font-family:"Space Mono",monospace;
+}
+.paper-heading{font-weight:700;letter-spacing:.12em}
+.paper-instruction{margin:.35rem 0 1.1rem;font-size:.72rem;color:#827565}
+.query-line{
+  display:flex;
+  align-items:flex-start;
+  gap:4px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(96,77,55,.35);
+}
+#index-query{
+  flex:1;
+  min-width:0;
+  resize:none;
+  overflow:hidden;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#2f2922;
+  caret-color:#8b4334;
+  font:700 1rem/1.5 "Space Mono",monospace;
+  -webkit-appearance:none;
+}
+#index-query:focus{outline:0}
+.index-results{
+  margin-top:18px;
+  display:grid;
+  gap:6px;
+  color:#74695b;
+  font-size:.68rem;
+  line-height:1.5;
+}
+.typewriter-body{
+  position:relative;
+  padding:18px 14px 14px;
+  border:3px solid #292925;
+  border-top-color:#8e8a80;
+  border-bottom-width:9px;
+  border-radius:15px 15px 5px 5px;
+  background:#3b3a36;
+  box-shadow:0 5px 0 #242421,0 9px 12px #30271c33,inset 0 1px #bbb5a6;
+}
+.typewriter-slot{height:8px;background:#171816;margin:0 12px 12px}
+.fake-keys{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  justify-content:center;
+}
+.fake-keys span{
+  display:grid;
+  place-items:center;
+  width:34px;height:30px;
+  border-radius:5px;
+  background:#242522;
+  border:1px solid #74716a;
+  color:#d8d0c1;
+  font:700 .55rem "Space Mono",monospace;
+  box-shadow:0 2px #171715;
+}
+.typewriter-badge{
+  margin-top:12px;
+  padding-top:8px;
+  border-top:1px solid #66645f;
+  text-align:center;
+  color:#aaa69e;
+  font:.55rem "Space Mono",monospace;
+  letter-spacing:.12em;
+}
+
+.tuner-panel{
+  flex:0 0 245px;
+  padding:16px 24px 12px;
+  border-top:5px solid #53341e;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 7px),
+    #292a28;
+}
+.scale-window{
+  height:88px;
+  padding:14px 18px 8px;
+  border:4px solid #161615;
+  background:linear-gradient(#33332f,#181917);
+}
+.scale-labels{display:flex;justify-content:space-between;text-align:center;color:#c7c0b4;font:700 .55rem "Space Mono",monospace}
+.scale-labels b{font-size:1rem;color:#ece5d8}
+.scale-labels .active,.scale-labels .active b{color:#e55b4d}
+.scale-line{height:1px;margin-top:18px;background:#bbb3a3}
+.control-row{display:flex;align-items:center;justify-content:space-between;padding:14px 22px 4px}
+.knob{display:grid;justify-items:center;gap:5px;color:#c7c0b4;font:.65rem "Space Mono",monospace}
+.knob i{
+  width:68px;height:68px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#bab6ad,#6e6b64 24%,#292a28 57%,#111 70%);
+  border:4px solid #111;
+  position:relative;
+}
+.knob i::after{content:"";position:absolute;width:24px;height:3px;background:#c34237;left:11px;bottom:15px;transform:rotate(-40deg)}
+.readout{display:flex;align-items:baseline;gap:5px;padding:8px 25px;border:3px solid #111;background:#0d0d0c;color:#d65b4d}
+.readout small{position:absolute;transform:translateY(-34px);color:#bbb;font:.6rem "Space Mono",monospace}
+.readout strong{font:800 2.6rem "Big Shoulders Display",sans-serif}
+.readout em{font:400 .7rem "Space Mono",monospace}
+.footer{display:flex;justify-content:space-between;padding-top:9px;border-top:1px solid #111;color:#8f8b83;font:.58rem "Space Mono",monospace;letter-spacing:.12em}
+
+.debug{
+  position:fixed;
+  z-index:10000;
+  right:22px;
+  bottom:22px;
+  display:grid;
+  gap:3px;
+  width:210px;
+  padding:10px;
+  background:rgba(10,10,10,.84);
+  color:#ddd;
+  border:1px solid rgba(255,255,255,.2);
+  font:.55rem "Space Mono",monospace;
+  pointer-events:none;
+}
+.debug b{color:#e5a969}
+
+/* Mobile */
+@media(max-width:700px){
+  html,body{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    overscroll-behavior:none;
+  }
+
+  .radio-unit{
+    inset:7px;
+    height:calc(var(--locked-height,100dvh) - 14px);
+    bottom:auto;
+  }
+  .radio-topline{
+    flex-basis:80px;
+    padding:0 12px;
+    gap:.8rem;
+  }
+  .brand{font-size:1.35rem}
+  .brand i{display:block;margin-top:2px}
+  .lab-name{display:none}
+  .status{font-size:.55rem}
+
+  .screen{margin:8px 8px 0}
+  .spectrum-strip{height:54px;padding-left:14px}
+  .index-station{inset:54px 0 0;padding:20px 12px 26px}
+  .station-line{font-size:.54rem}
+  .archive-kicker{margin-bottom:8px}
+  .typewriter-paper{min-height:180px;padding:18px 14px}
+  .typewriter-body{padding:12px 6px 10px}
+  .fake-keys{gap:3px}
+  .fake-keys span{width:26px;height:27px;font-size:.47rem}
+
+  .tuner-panel{flex-basis:255px;padding:12px 12px 10px}
+  .scale-window{height:90px;padding-inline:8px}
+  .scale-labels{font-size:.42rem}
+  .scale-labels b{font-size:.85rem}
+  .control-row{padding-inline:8px}
+  .knob i{width:61px;height:61px}
+  .readout{padding-inline:18px}
+  .footer{font-size:.48rem}
+
+  .debug{
+    right:12px;
+    bottom:12px;
+    width:188px;
+    opacity:.78;
+  }
+
+  /*
+    Core experiment:
+    - receiver keeps its pre-keyboard height
+    - typewriter becomes a fixed internal overlay while focused
+    - no station/tuner reflow occurs
+  */
+  body.keyboard-lock{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:var(--locked-height);
+    overflow:hidden;
+  }
+
+  body.keyboard-lock .radio-unit{
+    top:7px;
+    left:7px;
+    right:7px;
+    bottom:auto;
+    height:calc(var(--locked-height) - 14px);
+    max-height:none;
+  }
+
+  body.keyboard-lock .index-station{
+    overflow:visible;
+  }
+
+  body.keyboard-lock .typewriter-search{
+    position:fixed;
+    z-index:5000;
+    left:var(--overlay-left,19px);
+    top:var(--overlay-top,145px);
+    width:var(--overlay-width,calc(100vw - 38px));
+    max-width:none;
+    margin:0;
+  }
+
+  body.keyboard-lock .typewriter-body{
+    /* The physical typewriter can be covered by the OS keyboard.
+       We keep it in the overlay so the page never reflows. */
+  }
+}
+
+@media(max-width:420px){
+  .typewriter-paper{min-height:160px}
+  .fake-keys span{width:23px;height:25px}
+  .debug{display:none}
+}
