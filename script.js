@@ -16,6 +16,7 @@
   let lockedScrollY = 0;
   let restoreTimer = 0;
   let keyboardSeen = false;
+  let autoRecovering = false;
 
   function viewportHeight() {
     return Math.max(window.innerHeight || 0, document.documentElement.clientHeight || 0);
@@ -114,6 +115,36 @@
       // Some Android browsers pan the visual viewport while focusing.
       // We intentionally do not resize/reposition the receiver from vv.height.
       window.scrollTo(0, lockedScrollY);
+
+      const vv = window.visualViewport;
+      const visibleHeight = vv ? vv.height : viewportHeight();
+      const offsetTop = vv ? vv.offsetTop : 0;
+      const covered = Math.max(0, lockedHeight - visibleHeight - offsetTop);
+
+      // Important Android case:
+      // the OS keyboard can be dismissed without textarea.blur() firing.
+      // Once we have actually seen a keyboard-sized viewport reduction,
+      // treat a recovered viewport as "keyboard closed" and restore immediately.
+      if (
+        keyboardSeen &&
+        !autoRecovering &&
+        covered < 70 &&
+        visibleHeight >= lockedHeight - 80
+      ) {
+        autoRecovering = true;
+
+        // Blur is intentional here: the user has dismissed the OS keyboard,
+        // so keeping a hidden focused textarea only creates a stale input state.
+        if (document.activeElement === input) {
+          input.blur();
+        } else {
+          unlockAfterKeyboard();
+        }
+
+        setTimeout(() => {
+          autoRecovering = false;
+        }, 250);
+      }
     } else if (mobileMq.matches) {
       const h = viewportHeight();
       lockedHeight = h;
@@ -128,7 +159,9 @@
     setTimeout(writeDebug, 180);
   });
 
-  input.addEventListener('blur', unlockAfterKeyboard);
+  input.addEventListener('blur', () => {
+    unlockAfterKeyboard();
+  });
 
   input.addEventListener('input', () => {
     input.style.height = 'auto';
